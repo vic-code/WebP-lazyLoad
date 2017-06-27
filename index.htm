@@ -28,7 +28,7 @@
 </head>
 <body>
 	<div class="pro-list clearfix">
-		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/02.jpg" alt="">
 		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
 		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
 		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
@@ -66,6 +66,7 @@
 		            failure_limit : 300,
 		            skip_invisible : false,
 	                error : function($obj,original){
+	                	//没找到对应的webp图片，用原本的图
 	                    original = original.replace('.webp','');
 	                    $obj.attr('src',original);
 	                }
