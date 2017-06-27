@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WebP支持</title>
+	<style>
+		.clearfix{
+			display: block;
+		}
+		.clearfix:after{
+			content: ".";
+		    display: block;
+		    height: 0;
+		    clear: both;
+		    visibility: hidden;
+		}
+		.pro-list{
+			width:600px;
+			margin:100px auto;
+		}
+		.pro-list img{
+			float:left;
+			box-sizing:border-box;
+			width:50%;
+			padding:10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="pro-list clearfix">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+		<img src="./img/lazyload.gif" class="js-lazyWebp" data-original="./img/01.jpg" alt="">
+	</div>
+	
+	
+	<script src='./js/jquery-1.7.2.min.js'></script>
+	<script src='./js/jquery.lazyload.js'></script>
+	<script src='./js/Supportwebp.js'></script>
+
+	<script>
+		function scrollLazyLoad(select){
+			var $select=$(select);
+			if($select.length){
+				$select.lazyload({
+		            threshold : 20,
+		            effect: "fadeIn",
+		            failure_limit : 300,
+		            skip_invisible : false,
+	                error : function($obj,original){
+	                    original = original.replace('.webp','');
+	                    $obj.attr('src',original);
+	                }
+		        });
+			}
+		}
+
+		//webp懒加载
+		new Supportwebp({
+			suffix: '.webp',
+		    ok: function(ele) {
+		    	scrollLazyLoad('.js-lazyWebp');
+		    }
+		});
+
+	</script>
+</body>
+</html>
